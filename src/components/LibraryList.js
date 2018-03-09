@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { ListView } from 'react-native';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import ListItem from './ListItem';
 
 class LibraryList extends Component {
   componentWillMount() {
@@ -11,8 +14,8 @@ class LibraryList extends Component {
     this.dataSource = ds.cloneWithRows(this.props.libraries);
   }
 
-  renderRow() {
-    
+  renderRow(library) {
+    return <ListItem library={library} />;
   }
 
   render() {
@@ -25,7 +28,9 @@ class LibraryList extends Component {
   }
 }
 
-
+LibraryList.propTypes = {
+  libraries: PropTypes.object
+}
 
 const mapStateToProps = state => {
   return { libraries: state.libraries };
