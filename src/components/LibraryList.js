@@ -29,7 +29,7 @@ class LibraryList extends Component {
 }
 
 LibraryList.propTypes = {
-  libraries: PropTypes.object
+  libraries: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
 }
 
 const mapStateToProps = state => {
